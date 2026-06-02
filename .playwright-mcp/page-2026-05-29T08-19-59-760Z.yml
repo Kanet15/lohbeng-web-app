@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - paragraph [ref=e8]: Lohbeng Air
+        - paragraph [ref=e9]: ศูนย์ติดตามเมือง
+      - navigation [ref=e10]:
+        - button "แ แดชบอร์ด" [ref=e11] [cursor=pointer]:
+          - generic [ref=e12]: แ
+          - text: แดชบอร์ด
+        - button "แ แผนที่" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: แ
+          - text: แผนที่
+        - button "เ เส้นทางสุขภาพ" [ref=e15] [cursor=pointer]:
+          - generic [ref=e16]: เ
+          - text: เส้นทางสุขภาพ
+        - button "C CCTV" [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]: C
+          - text: CCTV
+        - button "ส สถิติ" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: ส
+          - text: สถิติ
+      - button "รายงานปัญหา" [ref=e23] [cursor=pointer]
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: โปรไฟล์เดโม
+        - paragraph [ref=e26]: หัวหน้าปฏิบัติการแฮกกาธอน
+    - main [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Lohbeng
+          - paragraph [ref=e33]: ศูนย์ควบคุมการจราจรขอนแก่น
+        - generic [ref=e37]:
+          - generic [ref=e39]:
+            - img [ref=e40]
+            - generic [ref=e43]:
+              - generic [ref=e44]:
+                - paragraph [ref=e45]: ค้นหาจุดจราจร
+                - generic [ref=e46]: ใช้ปุ่มลูกศรเพื่อเลือกและกด Enter เพื่อโฟกัสแผนที่
+              - combobox "พิมพ์ชื่อถนนหรือคำสำคัญ..." [expanded] [ref=e47]
+          - generic [ref=e48]: รองรับเฉพาะ 25 จุดที่กำหนดไว้ในระบบ
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - button "TH" [ref=e51] [cursor=pointer]
+            - button "EN" [ref=e52] [cursor=pointer]
+          - generic [ref=e53]: กำลังเริ่มระบบ
+          - generic [ref=e54]: "--:--"
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: กำลังโหลด snapshot ของแดชบอร์ด...
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - generic [ref=e61]:
+                  - paragraph [ref=e62]: ภูมิประเทศแบบสด
+                  - heading "Khon Kaen Central" [level=1] [ref=e63]
+                - generic [ref=e64]: รีเฟรชทุก 3 วินาที
+              - generic [ref=e67]:
+                - generic:
+                  - paragraph: โซนคุณภาพอากาศ
+                  - generic:
+                    - generic:
+                      - generic: ปลอดภัย
+                    - generic:
+                      - generic: ปานกลาง
+                    - generic:
+                      - generic: เสี่ยง
+                    - generic:
+                      - generic: อันตราย
+                - generic:
+                  - generic:
+                    - paragraph: ชั้นข้อมูลเส้นทางแนะนำ
+                    - paragraph: Green Path Downtown
+                    - paragraph: เพิ่มประโยชน์ต่อสุขภาพประมาณ +12%
+                  - generic:
+                    - paragraph: จุดโฟกัส CCTV
+                    - paragraph: เขตศูนย์กลางเมือง
+              - generic [ref=e69]:
+                - generic [ref=e71]:
+                  - generic [ref=e73]:
+                    - paragraph [ref=e74]: ดัชนีคุณภาพอากาศ
+                    - generic [ref=e75]:
+                      - generic [ref=e76]: "75.1"
+                      - generic [ref=e77]: AQI
+                    - generic [ref=e78]:
+                      - generic [ref=e79]: ความเข้มข้น PM2.5
+                      - generic [ref=e80]: 61.0 ug/m3
+                    - paragraph [ref=e81]: Moderate health concern for sensitive groups.
+                  - generic [ref=e84]:
+                    - button "เส้นทางสุขภาพ เดินทางในเส้นทางอากาศดีกว่า" [ref=e85] [cursor=pointer]:
+                      - paragraph [ref=e86]: เส้นทางสุขภาพ
+                      - paragraph [ref=e87]: เดินทางในเส้นทางอากาศดีกว่า
+                    - button "เส้นทางเร็วสุด ลดเวลาการเดินทาง" [ref=e88] [cursor=pointer]:
+                      - paragraph [ref=e89]: เส้นทางเร็วสุด
+                      - paragraph [ref=e90]: ลดเวลาการเดินทาง
+                  - generic [ref=e91]:
+                    - button "เปิดสตรีม CCTV" [ref=e92] [cursor=pointer]
+                    - button "สรุปรายวันและรายงานเขต ภาพรวมคุณภาพอากาศและการจราจรล่าสุด" [ref=e93] [cursor=pointer]:
+                      - paragraph [ref=e94]: สรุปรายวันและรายงานเขต
+                      - paragraph [ref=e95]: ภาพรวมคุณภาพอากาศและการจราจรล่าสุด
+                - generic [ref=e96]:
+                  - generic [ref=e97]:
+                    - paragraph [ref=e98]: จำนวนยานพาหนะ
+                    - paragraph [ref=e99]: "124"
+                    - paragraph [ref=e100]: ปริมาณการไหลจำลองแบบเรียลไทม์
+                  - generic [ref=e101]:
+                    - paragraph [ref=e102]: ลมและความชื้น
+                    - paragraph [ref=e103]: 28C / 64%
+                    - paragraph [ref=e104]: ทิศทางลมตะวันออกเฉียงเหนือเอื้อต่อการระบายอากาศ
+                  - generic [ref=e105]:
+                    - paragraph [ref=e106]: เส้นทางแนะนำ
+                    - paragraph [ref=e107]: Green Path Downtown
+                    - paragraph [ref=e108]: เพิ่มประโยชน์ต่อสุขภาพประมาณ +12%
+          - generic [ref=e110]:
+            - heading "ชีพจรแนวโน้ม" [level=2] [ref=e112]
+            - heading "การตรวจจับที่กำลังเกิดขึ้น" [level=2] [ref=e122]
+            - heading "กระดานความเสี่ยง" [level=2] [ref=e124]
+        - complementary [ref=e125]:
+          - generic [ref=e126]:
+            - heading "ข้อมูลสิ่งแวดล้อมอัจฉริยะ" [level=2] [ref=e127]
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - paragraph [ref=e130]: คะแนนการปล่อยมลพิษ
+                - paragraph [ref=e131]: "72.4"
+              - generic [ref=e132]: risky
+            - generic [ref=e133]:
+              - generic [ref=e134]: PM2.5 Elevated
+              - generic [ref=e135]: Traffic Dense
+          - heading "CCTV เฝ้าระวังเมือง" [level=2] [ref=e138]
+          - generic [ref=e139]:
+            - heading "สถานะด่วน" [level=2] [ref=e140]
+            - generic [ref=e141]:
+              - generic [ref=e142]:
+                - paragraph [ref=e143]: อุณหภูมิ
+                - paragraph [ref=e144]: 28C
+              - generic [ref=e145]:
+                - paragraph [ref=e146]: ความชื้น
+                - paragraph [ref=e147]: 64%
+              - generic [ref=e148]:
+                - paragraph [ref=e149]: ความเร็วเฉลี่ย
+                - paragraph [ref=e150]: 32 km/h
+              - generic [ref=e151]:
+                - paragraph [ref=e152]: อัปเดตล่าสุด
+                - paragraph [ref=e153]: "--:--"
+          - generic [ref=e155]:
+            - heading "โปรไฟล์เดโม" [level=2] [ref=e156]
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - paragraph [ref=e159]: หัวหน้าปฏิบัติการแฮกกาธอน
+                - paragraph [ref=e160]: "--"
+              - generic [ref=e161]:
+                - paragraph [ref=e162]: อัปเดตล่าสุด
+                - paragraph [ref=e163]: "--:--"
+              - button "รายงานปัญหา" [ref=e165] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e171] [cursor=pointer]:
+    - img [ref=e172]

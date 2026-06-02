@@ -1,0 +1,124 @@
+- generic [ref=e5]:
+  - complementary [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Lohbeng Air
+      - paragraph [ref=e9]: City Monitor
+    - navigation [ref=e10]:
+      - button "D Dashboard" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: D
+        - text: Dashboard
+      - button "M Map" [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: M
+        - text: Map
+      - button "H Health Routes" [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: H
+        - text: Health Routes
+      - button "C CCTV" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: C
+        - text: CCTV
+      - button "S Statistics" [ref=e19] [cursor=pointer]:
+        - generic [ref=e20]: S
+        - text: Statistics
+    - button "Report Issue" [ref=e21] [cursor=pointer]
+    - generic [ref=e22]:
+      - paragraph [ref=e23]: Demo profile
+      - paragraph [ref=e24]: Hackathon operations lead
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Lohbeng
+        - paragraph [ref=e30]: Khon Kaen Command Grid
+      - generic [ref=e32]: Search city route, district CCTV, or AQI hotspot...
+      - generic [ref=e33]:
+        - generic [ref=e34]: ALERT
+        - generic [ref=e35]: SYNC
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: Live terrain
+              - heading "Khon Kaen Central" [level=1] [ref=e42]
+            - generic [ref=e43]: Polling every 3s
+          - generic [ref=e44]:
+            - generic:
+              - paragraph: Air quality zones
+              - generic:
+                - generic:
+                  - generic: Safe
+                - generic:
+                  - generic: Moderate
+                - generic:
+                  - generic: Risky
+                - generic:
+                  - generic: Dangerous
+            - generic:
+              - generic:
+                - paragraph: Recommended route overlay
+                - paragraph: Green Path Downtown
+                - paragraph: Cleaner commute corridor through lakeside and civic district.
+              - generic:
+                - paragraph: CCTV focus
+                - paragraph: Central district
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e49]:
+                - paragraph [ref=e50]: Air quality index
+                - generic [ref=e51]:
+                  - generic [ref=e52]: "75.1"
+                  - generic [ref=e53]: ug/m3
+                - paragraph [ref=e54]: Moderate health concern for sensitive groups.
+              - generic [ref=e57]:
+                - button "Health route Cleaner commute" [ref=e58] [cursor=pointer]:
+                  - paragraph [ref=e59]: Health route
+                  - paragraph [ref=e60]: Cleaner commute
+                - button "Fastest path Lower travel time" [ref=e61] [cursor=pointer]:
+                  - paragraph [ref=e62]: Fastest path
+                  - paragraph [ref=e63]: Lower travel time
+              - generic [ref=e64]:
+                - button "Open CCTV stream" [ref=e65] [cursor=pointer]
+                - generic [ref=e66]: Daily snapshot and district report
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - paragraph [ref=e69]: Vehicle count
+                - paragraph [ref=e70]: "124"
+                - paragraph [ref=e71]: Realtime simulated flow
+              - generic [ref=e72]:
+                - paragraph [ref=e73]: Wind and humidity
+                - paragraph [ref=e74]: 28C / 64%
+                - paragraph [ref=e75]: Favorable north-east airflow
+              - generic [ref=e76]:
+                - paragraph [ref=e77]: Recommended route
+                - paragraph [ref=e78]: Green Path Downtown
+                - paragraph [ref=e79]: Estimated health gain +12%
+        - generic [ref=e80]:
+          - paragraph [ref=e82]: Trend pulse
+          - paragraph [ref=e92]: Active detections
+          - paragraph [ref=e94]: Risk board
+      - complementary [ref=e95]:
+        - generic [ref=e96]:
+          - paragraph [ref=e97]: Environmental intelligence
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - paragraph [ref=e100]: Emission score
+              - paragraph [ref=e101]: "72.4"
+            - generic [ref=e102]: risky
+          - generic [ref=e103]:
+            - generic [ref=e104]: PM2.5 Elevated
+            - generic [ref=e105]: Traffic Dense
+        - paragraph [ref=e107]: City monitoring CCTV
+        - generic [ref=e108]:
+          - paragraph [ref=e109]: Quick status
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: Temperature
+              - paragraph [ref=e113]: 28C
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Humidity
+              - paragraph [ref=e116]: 64%
+            - generic [ref=e117]:
+              - paragraph [ref=e118]: Avg speed
+              - paragraph [ref=e119]: 32 km/h
+            - generic [ref=e120]:
+              - paragraph [ref=e121]: Updated
+              - paragraph [ref=e122]: 19:25

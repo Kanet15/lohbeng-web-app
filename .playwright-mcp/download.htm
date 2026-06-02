@@ -1,0 +1,280 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Lohbeng Air - City Monitor</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#3e4a41",
+                        "primary-fixed": "#a3f69c",
+                        "on-error-container": "#93000a",
+                        "primary": "#0d631b",
+                        "secondary-fixed-dim": "#90d792",
+                        "inverse-primary": "#88d982",
+                        "on-primary-fixed": "#002204",
+                        "background": "#fbf9f1",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#002107",
+                        "on-tertiary-fixed": "#131e17",
+                        "surface-tint": "#1b6d24",
+                        "on-surface-variant": "#40493d",
+                        "secondary": "#286b33",
+                        "on-secondary-container": "#2e7238",
+                        "on-secondary-fixed-variant": "#07521d",
+                        "on-surface": "#1b1c17",
+                        "outline": "#707a6c",
+                        "outline-variant": "#bfcaba",
+                        "surface": "#fbf9f1",
+                        "surface-container": "#efeee5",
+                        "surface-container-high": "#eae8e0",
+                        "on-primary-container": "#cbffc2",
+                        "secondary-container": "#abf4ac",
+                        "primary-container": "#2e7d32",
+                        "tertiary-fixed": "#d9e6da",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4d5950",
+                        "surface-container-low": "#f5f4eb",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e4e3da",
+                        "primary-fixed-dim": "#88d982",
+                        "tertiary-container": "#657167",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#bdcabe",
+                        "on-background": "#1b1c17",
+                        "inverse-surface": "#30312b",
+                        "inverse-on-surface": "#f2f1e8",
+                        "surface-container-highest": "#e4e3da",
+                        "surface-bright": "#fbf9f1",
+                        "surface-dim": "#dbdad2",
+                        "secondary-fixed": "#abf4ac",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e8f5e9",
+                        "on-primary-fixed-variant": "#005312"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "24px",
+                        "gutter-grid": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "aqi-display": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "aqi-display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(251, 249, 241, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .aqi-ring {
+            background: conic-gradient(from 180deg, #ba1a1a 0%, #0d631b 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden flex h-screen">
+<!-- Desktop Side Navigation -->
+<aside class="hidden lg:flex flex-col h-full py-stack-lg bg-surface-container dark:bg-surface-container-high fixed left-0 top-0 h-full w-64 rounded-r-xl border-r border-outline-variant shadow-md z-30">
+<div class="px-6 mb-stack-lg">
+<h1 class="text-headline-md font-headline-md text-primary font-bold">Lohbeng Air</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">ระบบตรวจวัดเมือง</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Tab: Map -->
+<a class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-sm">แผนที่</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm">แดชบอร์ด</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="font-label-sm">เส้นทางสุขภาพ</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-sm">กล้อง CCTV</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-sm">สถิติ</span>
+</a>
+</nav>
+<div class="mt-auto px-2 space-y-1">
+<button class="w-full bg-primary text-on-primary rounded-xl py-3 font-label-sm mb-4 shadow-sm">รายงานปัญหา</button>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm">ประวัติ</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant mx-2 my-1 rounded-lg px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm">ตั้งค่า</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="relative flex-1 h-screen lg:ml-64 overflow-hidden">
+<!-- Top App Bar (Mobile Context) -->
+<header class="lg:hidden fixed top-0 left-0 right-0 z-40 px-margin-page py-4 flex justify-between items-center bg-surface-bright dark:bg-surface-dim backdrop-blur-md opacity-90 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">directions_bike</span>
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary dark:text-primary-fixed">Lohbeng</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+</div>
+</header>
+<!-- Full-Bleed Map Background -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover filter brightness-90 contrast-75 saturate-50" data-alt="A high-resolution satellite-style map of Khon Kaen city in Thailand, featuring lush green urban areas and clean grid-like street patterns. Overlaid on the map is a translucent, artistic environmental data heatmap showing vibrant orange and soft blue gradients representing air quality zones. The lighting is bright and clear, reflecting a high-tech environmental monitoring aesthetic with premium minimalist UI markers scattered across the terrain." data-location="Khon Kaen, Thailand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeSdOyvKLPm-oaIV0vltZFNukFIUBEb5wHhgqGcfCWdXOSvKZyf4av0kVNEvToEhpQvw6p51Cnx4HOM_0wY-33NqD7MedZUC0YRwJitZeaZExYgdS7socIOr1DguYEGGQQtOIRLAlnu1Cz7NoL2OePZa2Vvj1QE11YWsN71ZPHMnGXpUAgNvdP9zOv2rdsNi51pAAb9We0QcahZztqqMazfRZs1RwMdB4L6F2IZHCW3WEEtX7WQCn5cLJ6IJ98qcNExStU7fiGZ5Y">
+<!-- Overlay Visuals (Simulated Heatmap) -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 rounded-full blur-3xl"></div>
+<!-- Map Legend (Floating Mobile UI) -->
+<div class="absolute top-24 left-4 lg:left-8 z-10 glass-panel rounded-xl p-4 border border-outline-variant/30 space-y-2 hidden md:block">
+<h3 class="text-label-sm font-label-sm text-primary uppercase mb-2">ดัชนีคุณภาพอากาศ</h3>
+<div class="flex items-center gap-2 text-body-md"><span class="w-3 h-3 rounded-full bg-blue-500"></span> ดีมาก</div>
+<div class="flex items-center gap-2 text-body-md"><span class="w-3 h-3 rounded-full bg-green-500"></span> ดี</div>
+<div class="flex items-center gap-2 text-body-md"><span class="w-3 h-3 rounded-full bg-yellow-500"></span> ปานกลาง</div>
+<div class="flex items-center gap-2 text-body-md"><span class="w-3 h-3 rounded-full bg-orange-500"></span> เริ่มมีผลต่อสุขภาพ</div>
+</div>
+</div>
+<!-- Content Overlay / Bottom Sheet Area -->
+<div class="absolute inset-x-0 bottom-0 z-20 px-margin-page pb-24 lg:pb-margin-page flex flex-col items-center">
+<!-- Floating Mobile Sheet -->
+<div class="w-full max-w-lg glass-panel rounded-xl border border-outline-variant/30 shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+<!-- Sheet Drag Handle -->
+<div class="w-12 h-1 bg-outline-variant rounded-full mx-auto my-3 opacity-50"></div>
+<div class="px-6 pb-6 space-y-stack-md">
+<!-- Search Field -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-secondary-container/30 border-none rounded-full py-3 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary font-body-md" placeholder="เมืองขอนแก่น" type="text">
+</div>
+<!-- Primary Stats Card -->
+<div class="bg-primary/5 rounded-lg p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full border-[6px] border-orange-400 flex items-center justify-center relative">
+<div class="w-10 h-10 bg-orange-200 rounded-full"></div>
+<div class="absolute -inset-1 rounded-full border-2 border-white/20"></div>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="text-aqi-display font-aqi-display text-on-surface">75.1</span>
+<span class="text-body-md text-on-surface-variant">µg/m³</span>
+</div>
+<p class="text-body-md font-medium text-orange-700">คุณภาพอากาศมีผลต่อสุขภาพ</p>
+</div>
+</div>
+</div>
+<!-- Bento Action Grid -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center gap-2 bg-secondary-container text-on-secondary-container rounded-xl p-4 transition-transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-sm">เส้นทางสุขภาพ</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 bg-secondary-container text-on-secondary-container rounded-xl p-4 transition-transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+<span class="text-label-sm">เดินทางรวดเร็ว</span>
+</button>
+<button class="col-span-2 flex items-center justify-center gap-3 bg-primary text-on-primary rounded-xl p-4 transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined">videocam</span>
+<span class="text-label-sm uppercase tracking-wider">ดูกล้อง CCTV</span>
+</button>
+<button class="flex items-center gap-3 bg-surface-container-high rounded-xl p-4 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">calendar_today</span>
+<span class="text-label-sm">วัน / เดือน / ปี</span>
+</button>
+<button class="flex items-center gap-3 bg-surface-container-high rounded-xl p-4 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">bar_chart</span>
+<span class="text-label-sm">สถิติรายวัน</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="lg:hidden fixed bottom-4 left-4 right-4 z-50 flex justify-around items-center h-20 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 active:bg-primary-container/20 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">หน้าหลัก</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl px-4 py-2 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">directions_bike</span>
+<span class="text-label-sm font-label-sm">เส้นทาง</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 active:bg-primary-container/20 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-sm font-label-sm">สถิติ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 active:bg-primary-container/20 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">โปรไฟล์</span>
+</a>
+</nav>
+</main>
+<script>
+        // Simple Interaction logic for "Expanding" the sheet on scroll or click
+        const sheet = document.querySelector('.glass-panel');
+        let isExpanded = false;
+
+        sheet.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024) {
+               // In a real app, this would toggle state
+            }
+        });
+
+        // Atmospheric effect: Subtle pulse on the "Unhealthy" marker
+        const aqiMarker = document.querySelector('.aqi-ring');
+        if(aqiMarker) {
+            setInterval(() => {
+                aqiMarker.classList.toggle('scale-105');
+            }, 2000);
+        }
+    </script>
+
+
+</body></html>

@@ -1,0 +1,16 @@
+# Lohbeng Air Quality & Navigation App
+
+## Overview
+Lohbeng is a modern, premium air quality monitoring and route planning application. It combines real-time environmental data with navigation to help users find the "healthiest" and "fastest" routes.
+
+## Design Goals
+- **Responsive Scalability**: Transition from a single-column mobile view to a multi-pane dashboard on desktop.
+- **Data Clarity**: Highlight AQI (75.1 µg/m³) and environmental metrics prominently.
+- **Navigation Focus**: Integrate map views with actionable navigation cards.
+- **Brand Identity**: Maintain the signature green-on-green aesthetic with high legibility.
+
+## Screen List
+1. **Mobile View**: Refined version of the existing design.
+2. **Tablet View (768px)**: Split-screen layout with a persistent sidebar or bottom navigation and a 2-column grid for cards.
+3. **Desktop View (1440px)**: 3-column dashboard. Left sidebar, center map/main content, right stats/details panel.
+4. **Large Desktop (1920px)**: Expanded dashboard with detailed analytics, CCTV grid, and extended history charts.

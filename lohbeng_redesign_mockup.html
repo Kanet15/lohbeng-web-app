@@ -1,0 +1,405 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.shell{background:#0d1117;border-radius:12px;overflow:hidden;font-family:var(--font-sans)}
+.topbar{background:#161b22;border-bottom:0.5px solid #30363d;display:flex;align-items:center;gap:0;height:52px}
+.topbar-brand{display:flex;align-items:center;gap:10px;padding:0 16px;border-right:0.5px solid #30363d;height:100%;min-width:180px}
+.brand-icon{width:28px;height:28px;background:#1d9e75;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#fff}
+.brand-text{font-size:13px;font-weight:500;color:#e6edf3}
+.brand-sub{font-size:10px;color:#8b949e}
+.topbar-alert{flex:1;display:flex;align-items:center;gap:8px;padding:0 16px}
+.alert-badge{background:#3d1a1a;border:0.5px solid #e24b4a;border-radius:4px;padding:3px 10px;font-size:11px;font-weight:500;color:#f09595;display:flex;align-items:center;gap:5px}
+.alert-badge i{font-size:12px}
+.topbar-right{display:flex;align-items:center;gap:0;height:100%;padding:0 0 0 8px}
+.lang-toggle{display:flex;background:#21262d;border:0.5px solid #30363d;border-radius:6px;padding:2px;margin-right:12px}
+.lang-btn{padding:3px 8px;font-size:11px;border-radius:4px;cursor:pointer;color:#8b949e;font-weight:500}
+.lang-btn.active{background:#388bfd22;color:#388bfd}
+.topbar-time{font-size:12px;color:#8b949e;padding:0 12px;border-left:0.5px solid #30363d;height:100%;display:flex;align-items:center;gap:6px}
+.topbar-time i{font-size:14px;color:#1d9e75}
+.topbar-user{display:flex;align-items:center;gap:8px;padding:0 12px;border-left:0.5px solid #30363d;height:100%;cursor:pointer}
+.avatar{width:28px;height:28px;background:#1d3d6e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#85b7eb}
+.user-info{line-height:1.2}
+.user-name{font-size:12px;font-weight:500;color:#e6edf3}
+.user-role{font-size:10px;color:#8b949e}
+.body{display:flex;height:calc(100% - 52px)}
+.sidebar{width:180px;background:#161b22;border-right:0.5px solid #30363d;padding:12px 0;flex-shrink:0}
+.nav-section{margin-bottom:16px}
+.nav-label{font-size:10px;font-weight:500;color:#484f58;padding:0 14px 6px;letter-spacing:.05em;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:9px;padding:7px 14px;font-size:12px;cursor:pointer;color:#8b949e;transition:all .15s;border-left:2px solid transparent}
+.nav-item:hover{color:#c9d1d9;background:#21262d}
+.nav-item.active{color:#e6edf3;background:#21262d;border-left:2px solid #1d9e75;font-weight:500}
+.nav-item i{font-size:15px}
+.nav-item .nav-badge{margin-left:auto;background:#3d1a1a;color:#f09595;border-radius:3px;padding:1px 5px;font-size:10px}
+.main{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:14px;background:#0d1117}
+.critical-banner{background:#1a0d0d;border:0.5px solid #e24b4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.critical-banner i{font-size:18px;color:#e24b4a;flex-shrink:0}
+.critical-text{flex:1}
+.critical-title{font-size:12px;font-weight:500;color:#f09595}
+.critical-sub{font-size:11px;color:#8b5454;margin-top:1px}
+.critical-action{background:#e24b4a;border:none;border-radius:6px;padding:5px 12px;font-size:11px;font-weight:500;color:#fff;cursor:pointer;white-space:nowrap}
+.zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.zone{background:#161b22;border-radius:8px;border:0.5px solid #30363d;overflow:hidden}
+.zone-header{padding:10px 12px 8px;border-bottom:0.5px solid #21262d;display:flex;align-items:center;gap:8px}
+.zone-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.zone-dot.air{background:#e24b4a}
+.zone-dot.traffic{background:#ef9f27}
+.zone-dot.env{background:#1d9e75}
+.zone-title{font-size:11px;font-weight:500;color:#8b949e;text-transform:uppercase;letter-spacing:.04em}
+.zone-body{padding:12px}
+.aqi-main{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.aqi-num{font-size:36px;font-weight:500;color:#e24b4a;line-height:1}
+.aqi-unit{font-size:13px;color:#8b949e}
+.aqi-label{font-size:11px;font-weight:500;background:#3d1a1a;color:#f09595;border-radius:4px;padding:2px 8px;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px}
+.aqi-label i{font-size:11px}
+.aqi-sub{font-size:11px;color:#8b949e}
+.aqi-pm{font-size:11px;color:#8b949e;margin-bottom:4px}
+.aqi-pm span{color:#f09595;font-weight:500}
+.aqi-warning{background:#1a0d0d;border-left:2px solid #e24b4a;border-radius:0;padding:6px 8px;font-size:11px;color:#8b5454;margin-top:8px}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.metric{background:#0d1117;border-radius:6px;padding:8px 10px}
+.metric-label{font-size:10px;color:#484f58;margin-bottom:3px}
+.metric-val{font-size:20px;font-weight:500;color:#e6edf3}
+.metric-sub{font-size:10px;color:#484f58;margin-top:2px}
+.metric-val.amber{color:#ef9f27}
+.route-card{background:#0d1117;border-radius:6px;padding:8px 10px;margin-bottom:8px;display:flex;align-items:center;gap:10px;cursor:pointer;border:0.5px solid transparent}
+.route-card:hover{border-color:#30363d}
+.route-icon{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.route-icon.green{background:#0d2818;color:#1d9e75}
+.route-icon.blue{background:#0d1d35;color:#388bfd}
+.route-info{flex:1}
+.route-name{font-size:12px;font-weight:500;color:#e6edf3}
+.route-sub{font-size:10px;color:#8b949e;margin-top:1px}
+.route-badge{font-size:10px;font-weight:500;padding:2px 6px;border-radius:4px}
+.route-badge.health{background:#0d2818;color:#1d9e75}
+.route-badge.fast{background:#0d1d35;color:#388bfd}
+.env-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.env-item{background:#0d1117;border-radius:6px;padding:8px 10px}
+.env-item-label{font-size:10px;color:#484f58;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.env-item-label i{font-size:12px}
+.env-val{font-size:16px;font-weight:500;color:#e6edf3}
+.env-sub{font-size:10px;color:#484f58;margin-top:2px}
+.risk-score{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.risk-num{font-size:28px;font-weight:500;color:#ef9f27}
+.risk-label{font-size:11px;color:#8b949e}
+.risk-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.risk-tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px}
+.risk-tag.warn{background:#2d1f0a;color:#ef9f27}
+.risk-tag.danger{background:#2d0a0a;color:#f09595}
+.bottom-row{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.cctv-panel{background:#161b22;border-radius:8px;border:0.5px solid #30363d;overflow:hidden}
+.panel-header{padding:10px 12px;border-bottom:0.5px solid #21262d;display:flex;align-items:center;justify-content:space-between}
+.panel-title{font-size:11px;font-weight:500;color:#8b949e;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
+.panel-title i{font-size:14px}
+.panel-action{background:#21262d;border:0.5px solid #30363d;border-radius:5px;padding:4px 10px;font-size:11px;color:#8b949e;cursor:pointer}
+.panel-action:hover{color:#e6edf3}
+.cctv-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px}
+.cctv-feed{background:#0d1117;border-radius:6px;aspect-ratio:16/9;position:relative;overflow:hidden;cursor:pointer;border:0.5px solid #21262d}
+.cctv-feed:hover{border-color:#30363d}
+.cctv-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.cctv-play{width:28px;height:28px;background:#ffffff18;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cctv-play i{font-size:14px;color:#ffffff88}
+.cctv-info{position:absolute;bottom:5px;left:6px;right:6px;display:flex;justify-content:space-between;align-items:center}
+.cctv-name{font-size:9px;color:#8b949e}
+.cctv-live{font-size:9px;color:#1d9e75;font-weight:500;display:flex;align-items:center;gap:3px}
+.live-dot{width:4px;height:4px;background:#1d9e75;border-radius:50%}
+.alert-panel{background:#161b22;border-radius:8px;border:0.5px solid #30363d;overflow:hidden}
+.alert-list{padding:8px}
+.alert-item{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;border-radius:6px;margin-bottom:4px}
+.alert-item.danger{background:#1a0d0d}
+.alert-item.warn{background:#1a1208}
+.alert-item.ok{background:#0d1f16}
+.alert-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.alert-dot.danger{background:#e24b4a}
+.alert-dot.warn{background:#ef9f27}
+.alert-dot.ok{background:#1d9e75}
+.alert-content{flex:1}
+.alert-msg{font-size:11px;font-weight:500;color:#e6edf3}
+.alert-time{font-size:10px;color:#484f58;margin-top:1px}
+.status-bar{background:#161b22;border-top:0.5px solid #30363d;display:flex;align-items:center;gap:16px;padding:6px 16px}
+.status-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#484f58}
+.status-item i{font-size:13px}
+.status-item.live{color:#1d9e75}
+.status-dot{width:5px;height:5px;border-radius:50%;background:#1d9e75}
+.anno{background:#1c2b20;border:0.5px solid #1d9e75;border-radius:6px;padding:8px 12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.anno-num{width:18px;height:18px;background:#1d9e75;border-radius:50%;font-size:10px;font-weight:500;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.anno-text{font-size:11px;color:#7ee8b4;line-height:1.5}
+.anno-text strong{color:#a7f3d0;font-weight:500}
+</style>
+
+<h2 class="sr-only">Lohbeng Air — redesigned dashboard mockup พร้อม annotation แนวทางแก้ไข UX</h2>
+
+<div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:10px;display:flex;align-items:center;gap:6px">
+  <i class="ti ti-layout-dashboard" style="font-size:14px" aria-hidden="true"></i>
+  Redesign mockup — คลิก nav items เพื่อดู annotation ประจำแต่ละ zone
+</div>
+
+<div class="shell">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-icon">L</div>
+      <div>
+        <div class="brand-text">Lohbeng Air</div>
+        <div class="brand-sub">ศูนย์ติดตามเมือง</div>
+      </div>
+    </div>
+    <div class="topbar-alert">
+      <div class="alert-badge"><i class="ti ti-alert-triangle" aria-hidden="true"></i>PM2.5 สูงเกินเกณฑ์ — เขตศูนย์กลาง</div>
+    </div>
+    <div class="topbar-right">
+      <div class="lang-toggle">
+        <div class="lang-btn active">TH</div>
+        <div class="lang-btn">EN</div>
+      </div>
+      <div class="topbar-time"><i class="ti ti-clock" aria-hidden="true"></i><span id="clockEl">14:32:07</span></div>
+      <div class="topbar-user">
+        <div class="avatar">สว</div>
+        <div class="user-info">
+          <div class="user-name">สมชาย วงศ์ใหญ่</div>
+          <div class="user-role">หัวหน้าปฏิบัติการ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;height:520px">
+    <div class="sidebar">
+      <div class="nav-section">
+        <div class="nav-label">หลัก</div>
+        <div class="nav-item active"><i class="ti ti-layout-dashboard" aria-hidden="true"></i>แดชบอร์ด</div>
+        <div class="nav-item"><i class="ti ti-map" aria-hidden="true"></i>แผนที่สด</div>
+        <div class="nav-item"><i class="ti ti-route" aria-hidden="true"></i>เส้นทางสุขภาพ</div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">ตรวจสอบ</div>
+        <div class="nav-item"><i class="ti ti-camera" aria-hidden="true"></i>กล้อง CCTV<span class="nav-badge">2</span></div>
+        <div class="nav-item"><i class="ti ti-chart-bar" aria-hidden="true"></i>สถิติ & แนวโน้ม</div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">ระบบ</div>
+        <div class="nav-item"><i class="ti ti-flag" aria-hidden="true"></i>รายงานปัญหา</div>
+        <div class="nav-item"><i class="ti ti-settings" aria-hidden="true"></i>ตั้งค่า</div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="critical-banner">
+        <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+        <div class="critical-text">
+          <div class="critical-title">แจ้งเตือนด่วน — PM2.5 ระดับส้ม (61.0 µg/m³)</div>
+          <div class="critical-sub">กลุ่มเสี่ยงควรหลีกเลี่ยงกิจกรรมกลางแจ้ง · อัปเดต 14:32 น.</div>
+        </div>
+        <button class="critical-action" onclick="sendPrompt('แนะนำมาตรการรับมือ PM2.5 ระดับส้มสำหรับเจ้าหน้าที่')">ดูมาตรการ ↗</button>
+      </div>
+
+      <div class="zones">
+        <div class="zone">
+          <div class="zone-header">
+            <div class="zone-dot air"></div>
+            <div class="zone-title">คุณภาพอากาศ</div>
+          </div>
+          <div class="zone-body">
+            <div class="aqi-main"><span class="aqi-num">75.1</span><span class="aqi-unit">AQI</span></div>
+            <div class="aqi-label"><i class="ti ti-alert-circle" aria-hidden="true"></i>ระดับกลาง — ระวัง</div>
+            <div class="aqi-pm">PM2.5: <span>61.0 µg/m³</span></div>
+            <div class="aqi-warning">กลุ่มเสี่ยงควรลดกิจกรรมกลางแจ้ง</div>
+          </div>
+        </div>
+
+        <div class="zone">
+          <div class="zone-header">
+            <div class="zone-dot traffic"></div>
+            <div class="zone-title">การจราจร</div>
+          </div>
+          <div class="zone-body">
+            <div class="metric-row">
+              <div class="metric">
+                <div class="metric-label">ยานพาหนะ</div>
+                <div class="metric-val amber">124</div>
+                <div class="metric-sub">คัน (เรียลไทม์)</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">ความเร็วเฉลี่ย</div>
+                <div class="metric-val">32</div>
+                <div class="metric-sub">km/h</div>
+              </div>
+            </div>
+            <div class="route-card">
+              <div class="route-icon green"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+              <div class="route-info">
+                <div class="route-name">เส้นทางอากาศดี</div>
+                <div class="route-sub">PM2.5 ต่ำกว่าปกติ 18%</div>
+              </div>
+              <div class="route-badge health">แนะนำ</div>
+            </div>
+            <div class="route-card">
+              <div class="route-icon blue"><i class="ti ti-clock" aria-hidden="true"></i></div>
+              <div class="route-info">
+                <div class="route-name">เส้นทางเร็วที่สุด</div>
+                <div class="route-sub">ประหยัด 8 นาที</div>
+              </div>
+              <div class="route-badge fast">เร็วสุด</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone">
+          <div class="zone-header">
+            <div class="zone-dot env"></div>
+            <div class="zone-title">สภาพแวดล้อม</div>
+          </div>
+          <div class="zone-body">
+            <div class="env-grid">
+              <div class="env-item">
+                <div class="env-item-label"><i class="ti ti-temperature" aria-hidden="true"></i>อุณหภูมิ</div>
+                <div class="env-val">28°C</div>
+              </div>
+              <div class="env-item">
+                <div class="env-item-label"><i class="ti ti-droplet" aria-hidden="true"></i>ความชื้น</div>
+                <div class="env-val">64%</div>
+              </div>
+              <div class="env-item">
+                <div class="env-item-label"><i class="ti ti-wind" aria-hidden="true"></i>ลม</div>
+                <div class="env-val" style="font-size:13px;margin-top:2px">ตอ.</div>
+                <div class="env-sub">เอื้อระบายอากาศ</div>
+              </div>
+              <div class="env-item">
+                <div class="env-item-label"><i class="ti ti-alert-triangle" aria-hidden="true"></i>ความเสี่ยง</div>
+                <div class="env-val" style="color:#ef9f27">72.4</div>
+                <div class="env-sub">ระดับกลาง</div>
+              </div>
+            </div>
+            <div class="risk-tags" style="margin-top:8px">
+              <span class="risk-tag danger">PM2.5 สูง</span>
+              <span class="risk-tag warn">การจราจรหนาแน่น</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-row">
+        <div class="cctv-panel">
+          <div class="panel-header">
+            <div class="panel-title"><i class="ti ti-camera" aria-hidden="true"></i>กล้อง CCTV เฝ้าระวัง</div>
+            <button class="panel-action">ดูสด 12 จุด →</button>
+          </div>
+          <div class="cctv-grid">
+            <div class="cctv-feed" style="background:#0a0f14">
+              <div class="cctv-overlay">
+                <div class="cctv-play"><i class="ti ti-player-play" aria-hidden="true"></i></div>
+              </div>
+              <div class="cctv-info">
+                <span class="cctv-name">แยกศูนย์กลาง</span>
+                <span class="cctv-live"><span class="live-dot"></span>สด</span>
+              </div>
+            </div>
+            <div class="cctv-feed" style="background:#100a0a;border-color:#e24b4a44">
+              <div class="cctv-overlay">
+                <div class="cctv-play"><i class="ti ti-player-play" aria-hidden="true"></i></div>
+              </div>
+              <div class="cctv-info">
+                <span class="cctv-name" style="color:#f09595">ถ.มิตรภาพ <span style="font-size:9px">⚠</span></span>
+                <span class="cctv-live"><span class="live-dot"></span>สด</span>
+              </div>
+            </div>
+            <div class="cctv-feed" style="background:#0a0f14">
+              <div class="cctv-overlay">
+                <div class="cctv-play"><i class="ti ti-player-play" aria-hidden="true"></i></div>
+              </div>
+              <div class="cctv-info">
+                <span class="cctv-name">สี่แยกกสิกร</span>
+                <span class="cctv-live"><span class="live-dot"></span>สด</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-panel">
+          <div class="panel-header">
+            <div class="panel-title"><i class="ti ti-bell" aria-hidden="true"></i>แจ้งเตือนล่าสุด</div>
+          </div>
+          <div class="alert-list">
+            <div class="alert-item danger">
+              <div class="alert-dot danger"></div>
+              <div class="alert-content">
+                <div class="alert-msg">PM2.5 เกินเกณฑ์ปลอดภัย</div>
+                <div class="alert-time">14:28 น. · เขตศูนย์กลาง</div>
+              </div>
+            </div>
+            <div class="alert-item warn">
+              <div class="alert-dot warn"></div>
+              <div class="alert-content">
+                <div class="alert-msg">จราจรหนาแน่น ถ.มิตรภาพ</div>
+                <div class="alert-time">14:15 น. · ขาออก</div>
+              </div>
+            </div>
+            <div class="alert-item ok">
+              <div class="alert-dot ok"></div>
+              <div class="alert-content">
+                <div class="alert-msg">คุณภาพอากาศดีขึ้น เขต 3</div>
+                <div class="alert-time">13:50 น. · ต่ำกว่าเกณฑ์แล้ว</div>
+              </div>
+            </div>
+            <div class="alert-item warn">
+              <div class="alert-dot warn"></div>
+              <div class="alert-content">
+                <div class="alert-msg">ลมแรงผิดปกติ ทิศตอ.</div>
+                <div class="alert-time">13:40 น. · 18 km/h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-item live"><span class="status-dot"></span>ระบบออนไลน์</div>
+    <div class="status-item"><i class="ti ti-refresh" aria-hidden="true"></i>รีเฟรชทุก 3 วินาที</div>
+    <div class="status-item"><i class="ti ti-map-pin" aria-hidden="true"></i>ขอนแก่น · 25 จุดตรวจ</div>
+    <div class="status-item" style="margin-left:auto"><i class="ti ti-clock" aria-hidden="true"></i>อัปเดต <span id="updateEl">14:32:07</span> น.</div>
+  </div>
+</div>
+
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+  <div class="anno">
+    <div class="anno-num">1</div>
+    <div class="anno-text"><strong>Topbar ที่ถูกต้อง:</strong> ใส่ชื่อ-นามสกุลจริงของผู้ใช้แทน "demo persona" · แสดง alert สำคัญที่สุดบน global banner ตลอดเวลา · นาฬิกา live ช่วยให้รู้ว่าข้อมูลใหม่แค่ไหน</div>
+  </div>
+  <div class="anno">
+    <div class="anno-num">2</div>
+    <div class="anno-text"><strong>Sidebar navigation เดียว:</strong> ตัด bottom nav ออก — ใช้ sidebar เป็น canonical navigation · เพิ่ม active state ด้วย border-left + highlight · badge สีแดงบน CCTV บอกจำนวน alert โดยไม่ต้องเปิดหน้า</div>
+  </div>
+  <div class="anno">
+    <div class="anno-num">3</div>
+    <div class="anno-text"><strong>3-Zone layout แก้ cognitive overload:</strong> แบ่งข้อมูลออกเป็น (1) คุณภาพอากาศ (2) การจราจร (3) สภาพแวดล้อม — แต่ละ zone มีสีจุดนำ (แดง/เหลือง/เขียว) เพื่อให้ประเมินสถานการณ์ภาพรวมได้ใน 2 วินาที</div>
+  </div>
+  <div class="anno">
+    <div class="anno-num">4</div>
+    <div class="anno-text"><strong>CTA ที่บอก outcome:</strong> "เส้นทางอากาศดี — PM2.5 ต่ำกว่า 18%" แทน "เส้นทางสุขภาพ" · "ดูสด 12 จุด →" แทน "เปิดสตรีม CCTV" · "ดูมาตรการ ↗" แทน "สรุปรายวัน" — ผู้ใช้รู้ผลลัพธ์ก่อนคลิก</div>
+  </div>
+  <div class="anno">
+    <div class="anno-num">5</div>
+    <div class="anno-text"><strong>Status bar แก้ปัญหา "--:--":</strong> แสดงนาฬิกา live + สถานะระบบออนไลน์ + จำนวนจุดตรวจที่ active — แทน placeholder ที่ดู broken ขณะโหลด · i18n ครอบทุก string: "PM2.5 สูง" แทน "PM2.5 Elevated"</div>
+  </div>
+</div>
+
+<script>
+function pad(n){return n.toString().padStart(2,'0')}
+function tick(){
+  const d=new Date();
+  const t=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  const c=document.getElementById('clockEl');
+  const u=document.getElementById('updateEl');
+  if(c)c.textContent=t;
+  if(u)u.textContent=t;
+}
+tick();
+setInterval(tick,1000);
+const items=document.querySelectorAll('.nav-item');
+items.forEach(item=>{
+  item.addEventListener('click',function(){
+    items.forEach(i=>i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
